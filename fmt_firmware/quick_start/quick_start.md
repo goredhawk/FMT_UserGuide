@@ -26,6 +26,11 @@
 在配置好了编译环境后，首先需要配置`RTT_EXEC_PATH`的环境变量。将其值设置为编译器的地址，如
 
 ```
+*Windows*:
+System Property->Advanced->Environment Variables
+Add RTT_EXEC_PATH and set to  $arm-none-eabi-7-2018-q2-update/bin
+
+*Linux*:
 export RTT_EXEC_PATH=$arm-none-eabi-7-2018-q2-update/bin
 ```
 
@@ -87,7 +92,7 @@ msh />
 ### 下载FMT IO固件
 协处理器的IO固件需通过FMU进行下载，所以在下载IO固件之前需确保FMU已经正常运行起来。
 
-首先将IO固件`fmt_io.bin`放到sd卡上。FMT支持FTP功能，故可以通过QGC进行文件上传 (*Widget->Onboard Files*)，当然也可以使用SD读卡器进行文件拷贝。
+首先将IO固件`fmt_io.bin`放到sd卡上。FMT支持FTP功能，故可以通过QGC (3.5.6, 最新的QGC上已经不支持FTP的功能) 进行文件上传 (*Widget->Onboard Files*)，当然也可以使用SD读卡器进行文件拷贝。
 
 固件上传后，进入控制台输入如下指令:
 ```
@@ -103,6 +108,13 @@ fmtio upload $path/fmt_io.bin
 msh />fmtio hello
 msh />[IO]:Hello, this is FMT IO!
 ```
+
+### 上传默认系统配置文件
+默认系统配置文件放在 `fmt_fmu/target/pixhawk/sysconfig.toml`，里面定义了各个模块的配置信息。
+
+如 *[pilot-cmd]* 定义了遥控相关的配置，默认是使用ppm协议，6通道rc数据。如果您遥控的设置跟这里配置不移植，则需要对应进行修改。
+
+使用 QGC 的 *Widget->Onboard Files* 或者读卡器将`sysconfig.toml`上传到sd卡的`/sys`目录下，重启飞控即可。
 
 ### 刷回PX4固件
 首先同样利用**QGC**地面站下载PX4/APM的固件到FMU。 PX4在上电会检查IO的固件版本并进行更新。但是由于目前FMT IO还不识别PX4的重启指令，故无法重启进入bootloader模式，所以需要手动进行IO固件的下载，目前有两种方法：
