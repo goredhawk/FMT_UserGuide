@@ -39,9 +39,8 @@ FMT Model 是基于 Matlab/Simulink 开发的仿真模型，包括了完整的�
 # 手册目录
 
 ## FMT Firmware
-
-- [FMT Firmware架构](fmt_firmware/architecture/architecture.md)
 - [快速上手](fmt_firmware/quick_start/quick_start.md)
+- [FMT Firmware架构](fmt_firmware/architecture/architecture.md)
 - [组件 (Module)](fmt_firmware/module/module.md)
 - [驱动和硬件虚拟设备 (Driver/HAL)](fmt_firmware/device/device.md)
 - 任务 (Task)
@@ -49,9 +48,8 @@ FMT Model 是基于 Matlab/Simulink 开发的仿真模型，包括了完整的�
 - 贡献
 
 ## FMT Model
-
-- [FMT Model架构](fmt_model/architecture/architecture.md)
 - [快速上手](fmt_model/quick_start/quick_start.md)
+- [FMT Model架构](fmt_model/architecture/architecture.md)
 - [模型仿真](fmt_model/simulation/simulation.md)
 - [模型接口标准 (FMT Model Interface)](fmt_model/fmt_model_interface/fmt_model_interface.md)
 - [算法模型库](fmt_model/algorithm_model/models.md)
