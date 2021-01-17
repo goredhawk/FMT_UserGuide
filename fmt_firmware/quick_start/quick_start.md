@@ -112,7 +112,7 @@ msh />[IO]:Hello, this is FMT IO!
 ### 上传默认系统配置文件
 默认系统配置文件放在 `fmt_fmu/target/pixhawk/sysconfig.toml`，里面定义了各个模块的配置信息。
 
-如 *[pilot-cmd]* 定义了遥控相关的配置，默认是使用ppm协议，6通道rc数据。如果您遥控的设置跟这里配置不移植，则需要对应进行修改。
+如 *[pilot-cmd]* 定义了遥控相关的配置，默认是使用ppm协议，6通道rc数据。如果您遥控的设置跟这里配置不一致，则需要进行对应修改。
 
 使用 QGC 的 *Widget->Onboard Files* 或者读卡器将`sysconfig.toml`上传到sd卡的`/sys`目录下，重启飞控即可。
 
